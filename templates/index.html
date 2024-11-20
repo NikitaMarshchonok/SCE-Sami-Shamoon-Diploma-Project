@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз и Рекомендации по Одежде</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .weather-info {
+            margin-top: 20px;
+        }
+        .plot-container {
+            margin-top: 35px;
+            width: 350px;
+        }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Погода и Рекомендация по Одежде</h2>
+        <form method="POST" action="/">
+            <input type="text" name="city" placeholder="Введите название города" required>
+            <input type="date" name="date" min="{{ min_date }}" max="{{ max_date }}" required>
+            <button type="submit">Получить погоду и рекомендацию</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if weather %}
+            <div class="weather-info">
+                <h3>Погода в {{ weather['name'] }} на {{ selected_date }}</h3>
+                <p>Температура: {{ weather['main']['temp'] }}°C</p>
+                <p>Описание: {{ weather['weather'][0]['description'] }}</p>
+                <p>Влажность: {{ weather['main']['humidity'] }}%</p>
+                <p>Скорость ветра: {{ weather['wind']['speed'] }} м/с</p>
+            </div>
+            {% if outfit %}
+                <p>
+                    <strong>Рекомендация по Одежде:</strong>
+                    <span>{{ outfit }}</span>
+                </p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <!-- Weather Charts -->
+    <div class="plot-container">
+        <div id="tempChart"></div>
+        <div id="humidityChart"></div>
+        <div id="windSpeedChart"></div>
+    </div>
+
+    <script>
+        var dates = {{ forecast_dates|tojson }};
+        var temps = {{ forecast_temps|tojson }};
+        var humidity = {{ forecast_humidity|tojson }};
+        var windSpeed = {{ forecast_wind_speed|tojson }};
+
+        // Temperature Chart
+        var tempTrace = {
+            x: dates,
+            y: temps,
+            mode: 'lines+markers',
+            name: 'Температура (°C)',
+            line: {color: 'red'}
+        };
+        Plotly.newPlot('tempChart', [tempTrace], {
+            title: 'Температура на ближайшие 5 дней',
+            xaxis: { title: 'Дата' },
+            yaxis: { title: 'Температура (°C)' }
+        });
+
+        // Humidity Chart
+        var humidityTrace = {
+            x: dates,
+            y: humidity,
+            mode: 'lines+markers',
+            name: 'Влажность (%)',
+            line: {color: 'blue'}
+        };
+        Plotly.newPlot('humidityChart', [humidityTrace], {
+            title: 'Влажность на ближайшие 5 дней',
+            xaxis: { title: 'Дата' },
+            yaxis: { title: 'Влажность (%)' }
+        });
+
+        // Wind Speed Chart
+        var windTrace = {
+            x: dates,
+            y: windSpeed,
+            mode: 'lines+markers',
+            name: 'Скорость ветра (м/с)',
+            line: {color: 'green'}
+        };
+        Plotly.newPlot('windSpeedChart', [windTrace], {
+            title: 'Скорость ветра на ближайшие 5 дней',
+            xaxis: { title: 'Дата' },
+            yaxis: { title: 'Скорость ветра (м/с)' }
+        });
+    </script>
+</body>
+</html>
