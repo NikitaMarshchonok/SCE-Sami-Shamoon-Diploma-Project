@@ -19,5 +19,3 @@ This machine learning based project provides clothing recommendations adapted to
 1. Clone the repository:
    ```bash
    git clone https://github.com/NikitaMarshchonok/Weather-Based-Outfit-Recommender.git
-
-Translated with DeepL.com (free version)
