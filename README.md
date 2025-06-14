@@ -15,6 +15,3 @@ This machine learning based project provides clothing recommendations adapted to
 - **Data Management**: Storing historical weather data in a SQLite database.
 - **Data Updates**: Automatically update data using a background scheduler.
 
-## Installation and Startup
-
-0c5371ed608f373b53265533aedc8877ab4333c7
