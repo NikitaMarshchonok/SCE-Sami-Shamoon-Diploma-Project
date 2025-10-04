@@ -6,14 +6,17 @@ This app helps a user pick weather‑appropriate outfits for a selected city and
 --
 ##✨ Key Features
 
-Pick location & date, fetch forecast (temp, precipitation, wind, clouds, feels‑like).
+  Pick location & date, fetch forecast (temp, precipitation, wind, clouds, feels‑like)
 
-Outfit recommendations by seasons (summer / autumn‑spring / winter / accessories) with image cards.
+  Outfit recommendations by seasons (summer / autumn‑spring / winter / accessories) with image cards.
 
-Multi‑language: ru / he / en (via dictionaries; language switcher in UI).
+  Multi‑language: ru / he / en (via dictionaries; language switcher in UI).
 
-Request caching (TTL) to save API quota.
+  Request caching (TTL) to save API quota.
 
-Basic admin mode (protected) to upload images / edit outfit dictionaries.
+  Basic admin mode (protected) to upload images / edit outfit dictionaries.
 
-ML‑ready architecture for later personalization.
+  ML‑ready architecture for later personalization.
+
+
+
