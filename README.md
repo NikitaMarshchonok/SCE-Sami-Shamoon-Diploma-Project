@@ -1,17 +1,19 @@
-# SCE-Sami-Shamoon-Diploma-Project
-Diploma project , in which a model was trained to recommend clothing based on weather data obtained!
+# SCE‑Sami‑Shamoon‑Diploma‑Project
 
-## Weather-Based Outfit Recommender
+Weather → Wardrobe Recommender (Flask)
 
-## Project Description
+This app helps a user pick weather‑appropriate outfits for a selected city and date (today / next 3–4 days). Stack: Flask, OpenWeather API, simple rule‑based recommendations. A personalization ML model is planned.
+--
+##✨ Key Features
 
-This machine learning based project provides clothing recommendations adapted to current and predicted weather conditions. The project is developed using Flask, OpenWeather API and SQLite. It aims to make the clothing selection process convenient and data-driven.
+Pick location & date, fetch forecast (temp, precipitation, wind, clouds, feels‑like).
 
-## Main Features
+Outfit recommendations by seasons (summer / autumn‑spring / winter / accessories) with image cards.
 
-- **Integration with OpenWeather API**: Real-time weather data retrieval.
-- **Machine Learning Models**: Using DecisionTreeClassifier to predict clothing based on weather data.
-- **Interactive Visualization**: Displaying trend graphs of temperature, humidity, and other weather parameters.
-- **Data Management**: Storing historical weather data in a SQLite database.
-- **Data Updates**: Automatically update data using a background scheduler.
+Multi‑language: ru / he / en (via dictionaries; language switcher in UI).
 
+Request caching (TTL) to save API quota.
+
+Basic admin mode (protected) to upload images / edit outfit dictionaries.
+
+ML‑ready architecture for later personalization.
