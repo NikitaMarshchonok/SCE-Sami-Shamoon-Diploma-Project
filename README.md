@@ -4,7 +4,7 @@ Weather → Wardrobe Recommender (Flask)
 
 This app helps a user pick weather‑appropriate outfits for a selected city and date (today / next 3–4 days). Stack: Flask, OpenWeather API, simple rule‑based recommendations. A personalization ML model is planned.
 --
-##✨ Key Features
+## ✨ Key Features
 
   Pick location & date, fetch forecast (temp, precipitation, wind, clouds, feels‑like)
 
@@ -18,9 +18,9 @@ This app helps a user pick weather‑appropriate outfits for a selected city and
 
   ML‑ready architecture for later personalization.
 
---
+ --
 
-##🧠 Recommendation Logic (baseline rules)
+## 🧠 Recommendation Logic (baseline rules)
 
 Thresholds (editable in config.py):
 
