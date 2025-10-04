@@ -18,5 +18,30 @@ This app helps a user pick weather‑appropriate outfits for a selected city and
 
   ML‑ready architecture for later personalization.
 
+--
+
+##🧠 Recommendation Logic (baseline rules)
+
+Thresholds (editable in config.py):
+
+Hot: tmax ≥ 28°C → tee, shorts/light pants, cap, water.
+
+Warm: 22–27°C → tee/shirt, jeans/pants, light shoes.
+
+Cool: 15–21°C → long‑sleeve/light jacket, jeans, closed shoes.
+
+Cold: ≤ 14°C → sweater/hoodie + jacket, pants, warm shoes, beanie.
+
+Precipitation: precip>0 → umbrella/raincoat, waterproof shoes.
+
+Wind: wind_ms>7 → windbreaker/hood.
+
+Algorithm:
+
+From forecast derive temperature zone and flags (rain, wind, UV).
+
+Map to seasonal sets + accessories.
+
+Remove conflicting items, attach reasons.
 
 
