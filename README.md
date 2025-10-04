@@ -58,4 +58,9 @@ Offline metrics: F1@k / NDCG; Online: CTR/Save‑Rate, complaints↓.
 
 A/B: Rules vs ML, tune weights.
 
+Contact
 
+## Author: Nikita Marshchonok
+Email: n.marshchonok@gmail.com
+LinkedIn: http://www.linkedin.com/in/nikita-marshchonok
+GitHub: https://github.com/NikitaMarshchonok
