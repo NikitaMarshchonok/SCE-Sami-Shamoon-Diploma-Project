@@ -45,3 +45,17 @@ Map to seasonal sets + accessories.
 Remove conflicting items, attach reasons.
 
 
+
+## 🔮 ML Upgrade (roadmap)
+
+Dataset: historical weather + user choices/ratings.
+
+Features: tmin/tmax/feels, precip, wind, humidity, UV, weekday/holiday, city, user prefs.
+
+Model: multi‑label classification (Logistic/LightGBM) or learning‑to‑rank (pairwise).
+
+Offline metrics: F1@k / NDCG; Online: CTR/Save‑Rate, complaints↓.
+
+A/B: Rules vs ML, tune weights.
+
+
